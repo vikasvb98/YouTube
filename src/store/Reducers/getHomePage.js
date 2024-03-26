@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import {parseData} from "../../utils/Parsedata";
 
-
-const API_KEY = REACT_APP_YOUTUBE_DATA_API_KEY
+const API_KEY = 'your_api_key';
 
 export const getHomePageVideos = createAsyncThunk(
     "youtube/App/homePageVideos",
@@ -11,5 +11,7 @@ export const getHomePageVideos = createAsyncThunk(
             const response = await axios.get(`https://youtube.googleapis.com/youtube/v3/search?maxResults=20&q="one piece"&key=${API_KEY}&part=snippet&type=video`);
             const videosData = response.data.items
             console.log(videosData);
+
+            const parsedData = await parseData(videosData)
     }
 )
