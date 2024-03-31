@@ -19,7 +19,7 @@ const Home = () => {
   },[videos])
   
   return (
-    <div className='maax-h-screen overflow-auto'>
+    <div className='max-h-screen overflow-auto'>
       <div style={{height: '7.5vh'}}>
         <Navbar />
       </div>
@@ -33,7 +33,7 @@ const Home = () => {
         hasMore={videos.length<500}
         loader={<Spinner/>}
         height={650}>
-          <div>
+          <div className='grid gap-y-14 gap-x-8 grid-cols-4 p-8' key={videos.videoId}>
             {
               videos.map( (item)=> {
                 return (
